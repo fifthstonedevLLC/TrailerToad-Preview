@@ -428,3 +428,14 @@ h1,h2,h3{line-height:1.02}
 .story-body p{color:var(--text-2);font-size:18px;max-width:58ch}
 .story-body p+p{margin-top:16px}
 @media (max-width:860px){.story{grid-template-columns:1fr;gap:18px}}
+
+/* ---- round 3: hero ---- */
+.hero h1{font-size:clamp(36px,5.3vw,80px)}
+.hero-foot{align-items:center}
+.real-toad{display:flex;gap:14px;align-items:center;text-decoration:none;color:#E3E5E8;max-width:520px}
+.real-toad img{flex:none;width:120px;height:72px;object-fit:cover;border-radius:10px;border:1px solid rgba(178,184,192,.3)}
+.real-toad b{display:block;color:var(--accent-hi);margin-bottom:2px}
+.real-toad span span{font-size:15px;line-height:1.4}
+.real-toad:hover span span{text-decoration:underline;text-underline-offset:3px}
+.hero-foot>.mono{max-width:430px;text-align:right}
+@media (max-width:700px){.hero-foot>.mono{text-align:left}}
