@@ -415,3 +415,16 @@ h1,h2,h3{line-height:1.02}
 .yt p{color:var(--text-2);font-size:18px;max-width:46ch;margin-bottom:22px}
 @media (max-width:860px){.yt{grid-template-columns:1fr;gap:18px}}
 .field{align-content:start}
+
+/* ---- round 2: card buttons, story ---- */
+.route{transition:none}
+.route:hover{border-color:var(--line);transform:none}
+.route.dark:hover{border-color:var(--ink)}
+.route .btn{margin-top:auto;align-self:flex-start}
+.btn-line{border-color:var(--text);color:var(--text)}
+.btn-line:hover{background:var(--text);color:#fff}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.story h2{font-size:clamp(28px,3.97vw,57px)}
+.story-body p{color:var(--text-2);font-size:18px;max-width:58ch}
+.story-body p+p{margin-top:16px}
+@media (max-width:860px){.story{grid-template-columns:1fr;gap:18px}}
