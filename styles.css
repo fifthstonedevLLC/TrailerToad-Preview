@@ -446,3 +446,46 @@ h1,h2,h3{line-height:1.02}
 .card-photo{margin:28px 0 0;flex:1;display:flex;flex-direction:column;gap:10px}
 .card-photo img{flex:1;width:100%;min-height:240px;object-fit:cover;border-radius:14px}
 .card-photo figcaption{font-size:14px;color:var(--text-2)}
+
+/* ---- salt-flats video hero: dark text over the bright salt ---- */
+.hero-video{background:#E9E8E4;color:var(--text);min-height:clamp(620px,88vh,920px);display:flex;flex-direction:column;justify-content:flex-end}
+.hero-video::before{display:none}
+.hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#cfd2d4}
+.bg-video{width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block}
+.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(236,236,233,.94) 0%,rgba(236,236,233,.78) 30%,rgba(236,236,233,.25) 52%,rgba(236,236,233,0) 64%)}
+.hero-video .wrap{width:100%;padding-bottom:clamp(36px,5vw,64px)}
+.hero-video .hero-top{padding-top:0}
+.hero-video .eyebrow{color:#3A3F45}
+.hero-video h1{color:#111214}
+.hero-video h1 em{color:#B30F25}
+.hero-video .hero-side p{color:#2A2D31}
+.hero-video .btn-ghost{border-color:rgba(17,18,20,.35);color:#111214}
+.hero-video .btn-ghost:hover{border-color:#111214;background:rgba(17,18,20,.06)}
+.hero-media-bar{position:absolute;top:18px;right:var(--gutter);display:flex;align-items:center;gap:12px;z-index:1}
+.hero-media-bar .mono{color:#fff;font-size:11px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.video-toggle{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(11,11,12,.55);color:#fff;display:grid;place-items:center;cursor:pointer}
+.video-toggle:hover{background:rgba(11,11,12,.8)}
+.video-toggle svg{width:18px;height:18px}
+.video-toggle .i-play,.video-toggle[aria-pressed="true"] .i-pause{display:none}
+.video-toggle[aria-pressed="true"] .i-play{display:block}
+@media (max-width:760px){
+  .hero-video{min-height:0;display:block}
+  .hero-media{position:relative;inset:auto;height:62vw;min-height:240px}
+  .bg-video{object-position:56% 50%}
+  .hero-media::after{background:linear-gradient(to top,rgba(233,232,228,1) 0%,rgba(233,232,228,0) 30%)}
+  .hero-media-bar .mono{display:none}
+  .hero-video .wrap{padding-top:8px}
+}
+
+/* ---- schematic moved below the hero ---- */
+.schematic{color:#fff;padding:clamp(56px,7vw,96px) 0 0;background-color:#121314;background-image:var(--carbon);background-size:var(--carbon-size);background-position:var(--carbon-pos)}
+.schematic .sec-head{margin-bottom:clamp(8px,2vw,24px)}
+.schematic .sec-head p{color:#B4B9BF}
+.schematic .sec-num{color:var(--accent-hi)!important}
+/* video hero: full-width two-line headline, copy + buttons in one row, all on the salt below the rig */
+.hero-video .hero-top{grid-template-columns:1fr;gap:clamp(14px,2vw,22px);align-items:start}
+.hero-video h1{font-size:clamp(32px,4.3vw,66px);margin-top:12px;max-width:22ch}
+.hero-video .hero-side{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.hero-video .hero-side p{max-width:64ch;font-size:17px}
+.hero-video .hero-actions{margin-top:0}

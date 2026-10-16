@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=14">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,7 +79,16 @@
 </header>
 
 <main id="main">
-<section class="hero" id="top" style="padding:0">
+<section class="hero hero-video" id="top" style="padding:0">
+  <div class="hero-media">
+    <video class="bg-video" muted playsinline loop preload="auto" aria-hidden="true" data-start="15" data-end="25">
+      <source src="video/toad-salt-flats.mp4" type="video/mp4">
+    </video>
+    <div class="hero-media-bar">
+      <span class="mono">On the salt flats · Jeep + Toad + triple-axle trailer</span>
+      <button type="button" class="video-toggle" aria-pressed="false" aria-label="Pause background video"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+    </div>
+  </div>
   <div class="wrap">
     <div class="hero-top">
       <div>
@@ -95,7 +104,14 @@
         </div>
       </div>
     </div>
-
+  </div>
+</section>
+<section class="schematic" aria-labelledby="schematic-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="sec-num mono">Where the weight goes</span><h2 id="schematic-title">How the Toad carries the load</h2></div>
+      <p>The trailer’s tongue weight rides on the Toad’s own steerable axle. Your tow vehicle just pulls.</p>
+    </div>
     <div class="rig">
       <div class="chips">
         <div class="spec-chip chip-b"><span class="mono">Tongue weight on tow vehicle</span><strong class="y">0 LB</strong></div>
@@ -181,7 +197,6 @@
         </g>
       </svg>
     </div>
-
     <div class="hero-foot">
       <a class="real-toad" href="trailer-toad.html#photo">
         <img src="images/toad-closeup-thumb.webp" width="480" height="288" alt="" loading="lazy">
@@ -299,6 +314,6 @@
     </div>
   </div>
 </footer>
-<script src="site.js?v=2" defer></script>
+<script src="site.js?v=5" defer></script>
 </body>
 </html>

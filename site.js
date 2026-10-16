@@ -42,3 +42,34 @@ document.addEventListener('keydown', e => {
   closeSpots();
   open?.focus();
 });
+
+// Hero video: loop a 10-second stretch, honour reduced motion, and offer pause/play.
+const bg = document.querySelector('.bg-video');
+if (bg) {
+  const start = +bg.dataset.start, end = +bg.dataset.end;
+  const toggle = document.querySelector('.video-toggle');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const setPaused = paused => {
+    toggle.setAttribute('aria-pressed', paused);
+    toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+  };
+  bg.addEventListener('loadedmetadata', () => {
+    bg.currentTime = start;
+    if (still) setPaused(true); else bg.play().catch(() => setPaused(true));
+  });
+  let userPaused = still;
+  bg.addEventListener('timeupdate', () => {
+    if (bg.currentTime >= end || bg.currentTime < start - 1) {
+      bg.currentTime = start;
+      if (!userPaused) bg.play().catch(() => {});
+    }
+  });
+  toggle.addEventListener('click', () => {
+    userPaused = !bg.paused;
+    if (bg.paused) { bg.play(); setPaused(false); } else { bg.pause(); setPaused(true); }
+  });
+  // a tab opened in the background may block autoplay; start once it's visible unless paused on purpose
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && bg.paused && !userPaused) bg.play().then(() => setPaused(false)).catch(() => {});
+  });
+}
