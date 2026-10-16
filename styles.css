@@ -489,3 +489,12 @@ h1,h2,h3{line-height:1.02}
 .hero-video .hero-side{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
 .hero-video .hero-side p{max-width:64ch;font-size:17px}
 .hero-video .hero-actions{margin-top:0}
+
+/* video toggle: quiet until hovered/focused; 44px target kept via the invisible ring */
+.hero-media-bar{top:14px}
+.video-toggle{position:relative;width:34px;height:34px;border:0;background:rgba(11,11,12,.38);opacity:.6;transition:opacity .18s,background-color .18s}
+.video-toggle::before{content:"";position:absolute;inset:-5px}
+.video-toggle svg{width:14px;height:14px}
+.video-toggle:hover,.video-toggle:focus-visible{opacity:1;background:rgba(11,11,12,.75)}
+.video-toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media (max-width:760px){.hero-media-bar{top:auto;bottom:12px;right:12px}}
