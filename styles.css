@@ -440,3 +440,9 @@ h1,h2,h3{line-height:1.02}
 .hero-foot>.mono{max-width:430px;text-align:right}
 @media (max-width:700px){.hero-foot>.mono{text-align:left}}
 .page-hero h1{max-width:20ch}
+
+/* contact card photo fills the space beside the form */
+.contact-card:first-child{display:flex;flex-direction:column}
+.card-photo{margin:28px 0 0;flex:1;display:flex;flex-direction:column;gap:10px}
+.card-photo img{flex:1;width:100%;min-height:240px;object-fit:cover;border-radius:14px}
+.card-photo figcaption{font-size:14px;color:var(--text-2)}

@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles.css?v=12">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -104,7 +104,7 @@
       <!-- Side-elevation diagram: truck camper, Toad, car hauler, travelling left (matches the photos) -->
       <svg viewBox="0 0 1200 444" role="img" aria-labelledby="rigT rigD">
         <title id="rigT">Diagram of a Trailer Toad in use</title>
-        <desc id="rigD">A pickup with a truck camper, on the left, tows through a weight distribution hitch. The Trailer Toad’s front coupler sits on the hitch ball, and the hitch’s spring bars chain up to brackets on the Toad’s frame. The Toad rides on one wheel under a fender, with a spare tire on top. An enclosed car hauler on the right couples to the ball at the rear of the Toad, so the Toad’s axle carries the hauler’s tongue weight and the truck carries none.</desc>
+        <desc id="rigD">A pickup with a truck camper, on the left, tows the Trailer Toad: a tow bar runs from the truck’s receiver to the front of the Toad. The Toad rides on one wheel under a fender, with a spare tire on top. A weight distribution hitch on the rear of the Toad connects to an enclosed car hauler on the right, with spring bars chained up to the hauler’s tongue. The Toad’s axle carries the hauler’s tongue weight, so the truck carries none.</desc>
         <g fill="none" stroke="#A9AFB6" stroke-width="2" stroke-linejoin="round">
           <!-- ground: rig travels left, so the dashes slide right -->
           <line x1="0" y1="372" x2="1200" y2="372" stroke-opacity=".5"/>
@@ -126,15 +126,13 @@
           <!-- truck wheels -->
           <circle cx="150" cy="334" r="38" fill="#0B0B0C"/><circle cx="150" cy="334" r="15"/>
           <circle cx="392" cy="334" r="38" fill="#0B0B0C"/><circle cx="392" cy="334" r="15"/>
-          <!-- receiver + weight distribution hitch: head with ball, spring bars chained up to the Toad frame -->
-          <path d="M474 300 H498" stroke-width="6"/>
-          <rect x="496" y="282" width="12" height="30" rx="2" fill="#17181B" stroke-width="2.5"/>
-          <circle cx="514" cy="288" r="6" fill="#A9AFB6" stroke="none"/>
-          <path d="M506 306 L578 314" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M578 314 V304" stroke-width="2" stroke-dasharray="2 2.5"/>
+          <!-- truck receiver + tow bar: the Toad's front attachment, with safety chain -->
+          <path d="M474 300 H500" stroke-width="6"/>
+          <path d="M500 300 L562 302" stroke-width="4" stroke-linecap="round"/>
+          <path d="M504 306 Q532 324 560 308" stroke-width="1.5" stroke-dasharray="2 2.5" stroke-opacity=".8"/>
 
           <!-- enclosed car hauler -->
-          <path d="M692 300 L742 290 M692 300 L742 312" stroke-width="3"/>
+          <path d="M706 296 L742 288 M706 296 L742 312" stroke-width="3"/>
           <path d="M742 318 V146 Q742 132 756 132 H1150 Q1162 132 1162 144 V318 Z" fill="#17181B"/>
           <path d="M742 286 H792 V318" stroke-opacity=".45"/>
           <rect x="818" y="164" width="62" height="130" rx="4" stroke-opacity=".8"/>
@@ -144,33 +142,40 @@
           <circle cx="1025" cy="341" r="31" fill="#0B0B0C"/><circle cx="1025" cy="341" r="12"/>
         </g>
 
-        <!-- THE TOAD: front coupler + A-frame tongue on the hitch ball, frame with chain brackets,
-             spare tire, fender over a trailer-size wheel, jack post and rear ball -->
+        <!-- THE TOAD: front bracket for the tow bar, frame, spare tire,
+             fender over a trailer-size wheel, jack post; weight distribution hitch on its rear -->
         <g>
-          <path d="M506 291 Q514 279 523 289" fill="none" stroke="#E8253A" stroke-width="4" stroke-linecap="round"/>
-          <path d="M521 291 L566 303" stroke="#E8253A" stroke-width="5" stroke-linecap="round"/>
+          <rect x="556" y="294" width="10" height="16" rx="2" fill="#E8253A"/>
           <path d="M562 304 H682" stroke="#E8253A" stroke-width="7" stroke-linecap="round"/>
-          <rect x="574" y="300" width="8" height="8" fill="#E8253A"/>
           <rect x="566" y="280" width="64" height="14" rx="7" fill="#0B0B0C" stroke="#E8253A" stroke-width="2.5"/>
           <path d="M580 330 A42 42 0 0 1 664 330" fill="none" stroke="#E8253A" stroke-width="4"/>
           <circle cx="622" cy="341" r="31" fill="#0B0B0C" stroke="#E8253A" stroke-width="3"/>
           <circle cx="622" cy="341" r="12" fill="none" stroke="#E8253A" stroke-width="2"/>
-          <path d="M676 304 V262" stroke="#E8253A" stroke-width="3"/>
-          <circle cx="690" cy="296" r="8" fill="#E8253A"/>
+          <path d="M672 304 V262" stroke="#E8253A" stroke-width="3"/>
+        </g>
+        <!-- weight distribution hitch on the Toad's rear: head + ball, spring bar chained up to the hauler tongue -->
+        <g fill="none" stroke="#A9AFB6" stroke-linejoin="round">
+          <rect x="682" y="282" width="12" height="30" rx="2" fill="#17181B" stroke-width="2.5"/>
+          <circle cx="700" cy="292" r="6" fill="#A9AFB6" stroke="none"/>
+          <path d="M692 308 L734 316" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M734 316 V306" stroke-width="2" stroke-dasharray="2 2.5"/>
         </g>
 
         <!-- callouts -->
         <g font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.2">
-          <path d="M690 158 V270" stroke="#E8253A" stroke-width="3"/>
-          <path d="M680 260 L690 278 L700 260" fill="#E8253A"/>
-          <text x="700" y="126" fill="#FF6A72" text-anchor="end">TONGUE WEIGHT</text>
-          <text x="700" y="146" fill="#FF6A72" text-anchor="end">CARRIED BY THE TOAD</text>
-          <line x1="542" y1="316" x2="542" y2="404" stroke="#A9AFB6" stroke-opacity=".6" stroke-dasharray="3 4"/>
-          <text x="532" y="418" fill="#A9AFB6" text-anchor="end">WEIGHT DISTRIBUTION HITCH</text>
-          <text x="532" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="end">0 LB TONGUE WEIGHT ON TRUCK</text>
+          <path d="M700 158 V266" stroke="#E8253A" stroke-width="3"/>
+          <path d="M690 256 L700 274 L710 256" fill="#E8253A"/>
+          <text x="710" y="126" fill="#FF6A72" text-anchor="end">TONGUE WEIGHT</text>
+          <text x="710" y="146" fill="#FF6A72" text-anchor="end">CARRIED BY THE TOAD</text>
+          <line x1="508" y1="304" x2="508" y2="404" stroke="#A9AFB6" stroke-opacity=".6" stroke-dasharray="3 4"/>
+          <text x="498" y="418" fill="#A9AFB6" text-anchor="end">FRONT ATTACHMENT</text>
+          <text x="498" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="end">0 LB ON TRUCK HITCH</text>
           <line x1="622" y1="372" x2="622" y2="404" stroke="#A9AFB6" stroke-opacity=".5"/>
-          <text x="632" y="418" fill="#A9AFB6">STEERABLE DURATEK TORSION AXLE</text>
-          <text x="632" y="436" fill="#A9AFB6" fill-opacity=".75">CENTER VERTICAL SPINDLE</text>
+          <text x="622" y="418" fill="#A9AFB6" text-anchor="middle">STEERABLE DURATEK AXLE</text>
+          <text x="622" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="middle">CENTER VERTICAL SPINDLE</text>
+          <line x1="720" y1="316" x2="720" y2="404" stroke="#A9AFB6" stroke-opacity=".6" stroke-dasharray="3 4"/>
+          <text x="742" y="418" fill="#A9AFB6">WEIGHT DISTRIBUTION HITCH</text>
+          <text x="742" y="436" fill="#A9AFB6" fill-opacity=".75">ON THE REAR OF THE TOAD</text>
           <text x="482" y="94" fill="#A9AFB6" fill-opacity=".8" text-anchor="end">TRUCK CAMPER</text>
           <text x="1162" y="116" fill="#A9AFB6" fill-opacity=".8" text-anchor="end">ENCLOSED CAR HAULER</text>
         </g>
@@ -180,7 +185,7 @@
     <div class="hero-foot">
       <a class="real-toad" href="trailer-toad.html#photo">
         <img src="images/toad-closeup-thumb.webp" width="480" height="288" alt="" loading="lazy">
-        <span><b class="mono">The real Toad</b><span>Front coupler on the weight distribution hitch, trailer on the rear ball. See it up close.</span></span>
+        <span><b class="mono">The real Toad</b><span>Front attachment to the tow vehicle, weight distribution hitch on the rear. See it up close.</span></span>
       </a>
       <span class="mono">Built in the USA · Certified American welders · Exclusive manufacturer for 20 years</span>
     </div>
