@@ -19,7 +19,7 @@ const btn = document.querySelector('.menu-btn'), links = document.getElementById
       return;
     }
     const d = new FormData(f);
-    const body = `Name: ${d.get('name')}\nPhone: ${d.get('phone')}\nTow vehicle: ${d.get('tow')}\nTrailer weight: ${d.get('weight')}\n\n${d.get('message')}`;
+    const body = `Name: ${d.get('name')}\nPhone: ${d.get('phone')}\nTow vehicle: ${d.get('tow')}\nTrailer weight: ${d.get('weight')}\nDelivery ZIP/postal code: ${d.get('zip')}\nAddress type: ${d.get('addr')}\n\n${d.get('message')}`;
     location.href = `mailto:trailertoad1@yahoo.com?subject=${encodeURIComponent('Trailer Toad question from ' + d.get('name'))}&body=${encodeURIComponent(body)}`;
     status.textContent = 'Opening your email app. If nothing happens, call or text (319) 404-7001.';
   });
