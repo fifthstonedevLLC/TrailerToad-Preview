@@ -46,7 +46,8 @@ document.addEventListener('keydown', e => {
 // Hero video: loop a 10-second stretch, honour reduced motion, and offer pause/play.
 const bg = document.querySelector('.bg-video');
 if (bg) {
-  const start = +bg.dataset.start, end = +bg.dataset.end;
+  // the full clip loops data-start..data-end; the trimmed Docker build ships just that stretch, so loop all of it
+  let start = +bg.dataset.start, end = +bg.dataset.end;
   const toggle = document.querySelector('.video-toggle');
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const setPaused = paused => {
@@ -54,6 +55,7 @@ if (bg) {
     toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
   };
   bg.addEventListener('loadedmetadata', () => {
+    if (bg.duration < end) { start = 0; end = bg.duration - 0.05; }
     bg.currentTime = start;
     if (still) setPaused(true); else bg.play().catch(() => setPaused(true));
   });
