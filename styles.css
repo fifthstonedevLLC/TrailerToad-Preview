@@ -439,3 +439,4 @@ h1,h2,h3{line-height:1.02}
 .real-toad:hover span span{text-decoration:underline;text-underline-offset:3px}
 .hero-foot>.mono{max-width:430px;text-align:right}
 @media (max-width:700px){.hero-foot>.mono{text-align:left}}
+.page-hero h1{max-width:20ch}
