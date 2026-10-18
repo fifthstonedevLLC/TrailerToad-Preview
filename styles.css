@@ -548,3 +548,9 @@ h1,h2,h3{line-height:1.02}
 .pc .pc-call{display:block;text-decoration:none;color:var(--rust);font-size:15px;font-weight:600;letter-spacing:.02em}
 .pc .pc-call:hover{text-decoration:underline}
 @media (max-width:600px){.pc{min-height:0;padding:18px 20px}.pc .pc-price{font-size:18px;padding-top:12px}}
+/* advice options: shared rows so headings, copy and the dashed "Best when" rule line up across columns */
+@media (min-width:861px){
+  .advice-grid{grid-template-rows:auto auto 1fr auto;row-gap:0}
+  .opt{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:12px;align-content:start}
+  .opt .when{margin-top:0;align-self:start}
+}
