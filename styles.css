@@ -560,3 +560,15 @@ h1,h2,h3{line-height:1.02}
   .bump{display:flex;flex-direction:column}
   .bump .signs{margin-top:auto}
 }
+
+/* photo labels open on hover and keyboard focus; .open is the touch fallback */
+.hotspot:focus-within{z-index:6}
+.hotspot:focus-within .tip{opacity:1;visibility:visible}
+.hotspot:focus-within .npin,.hotspot:focus-within .pin-label{background:#fff;color:#111214}
+@media (hover:hover){
+  .hotspot:hover{z-index:6}
+  .hotspot:hover .tip{opacity:1;visibility:visible}
+  .hotspot:hover .npin,.hotspot:hover .pin-label{background:#fff;color:#111214}
+  .hotspot .npin,.hotspot .pin-label{cursor:help}
+}
+@media (max-width:600px){.tip{width:min(240px,64vw);font-size:14px}}

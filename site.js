@@ -24,23 +24,22 @@ const btn = document.querySelector('.menu-btn'), links = document.getElementById
     status.textContent = 'Opening your email app. If nothing happens, call or text (319) 404-7001.';
   });
 
-// Photo labels: click to show the description, click elsewhere or press Escape to close.
+// Photo labels: descriptions show on hover (mouse) or keyboard focus via CSS. Touch screens have
+// no hover, so there a tap opens the description and a tap elsewhere or Escape closes it.
 const spots = document.querySelectorAll('.hotspot');
-const closeSpots = () => spots.forEach(h => { h.classList.remove('open'); h.querySelector('button').setAttribute('aria-expanded', 'false'); });
-spots.forEach(h => {
-  const b = h.querySelector('button');
-  b.addEventListener('click', () => {
+const closeSpots = () => spots.forEach(h => h.classList.remove('open'));
+if (!matchMedia('(hover: hover)').matches) {
+  spots.forEach(h => h.querySelector('button').addEventListener('click', () => {
     const open = !h.classList.contains('open');
     closeSpots();
-    if (open) { h.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
-  });
-});
-document.addEventListener('click', e => { if (!e.target.closest('.hotspot')) closeSpots(); });
+    if (open) h.classList.add('open');
+  }));
+  document.addEventListener('click', e => { if (!e.target.closest('.hotspot')) closeSpots(); });
+}
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
-  const open = document.querySelector('.hotspot.open button');
   closeSpots();
-  open?.focus();
+  if (document.activeElement && document.activeElement.closest('.hotspot')) document.activeElement.blur();
 });
 
 // Hero video: loop a 10-second stretch, honour reduced motion, and offer pause/play.
