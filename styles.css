@@ -64,7 +64,7 @@ p{margin:0}
 .nav-cta{display:flex;align-items:center;gap:12px}
 .menu-btn{display:none;width:48px;height:48px;border-radius:12px;border:1px solid rgba(178,184,192,.3);background:transparent;color:#fff;cursor:pointer}
 .menu-btn svg{margin:auto;width:22px;height:22px}
-@media (max-width:1020px){
+@media (max-width:1080px){
   .nav-links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--ink);padding:12px var(--gutter) 20px;border-bottom:1px solid rgba(178,184,192,.15)}
   .nav-links.open{display:flex}
   .nav-links a{padding:14px 12px;font-size:17px}
@@ -399,7 +399,7 @@ h1,h2,h3{line-height:1.02}
 .steps{grid-template-columns:repeat(3,1fr)}
 @media (max-width:900px){.steps{grid-template-columns:1fr}}
 .steps a{color:var(--rust);font-weight:600}
-@media (max-width:1020px){
+@media (max-width:1080px){
   .nav-links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--ink);padding:12px var(--gutter) 20px;border-bottom:1px solid rgba(178,184,192,.15)}
   .nav-links.open{display:flex}
   .nav-links a{padding:14px 12px;font-size:17px}
@@ -498,3 +498,8 @@ h1,h2,h3{line-height:1.02}
 .video-toggle:hover,.video-toggle:focus-visible{opacity:1;background:rgba(11,11,12,.75)}
 .video-toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media (max-width:760px){.hero-media-bar{top:auto;bottom:12px;right:12px}}
+/* rig faces right now: "0 lb on tow vehicle" sits over the truck (right), "trailers rated" over the hauler (left) */
+@media (min-width:901px){
+  .chip-b{left:auto;right:2%;top:4%}
+  .chip-a{right:auto;left:3%;top:-6%}
+}

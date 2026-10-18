@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="styles.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -118,7 +118,9 @@
       <!-- Side-elevation diagram: truck camper, Toad, car hauler, travelling left (matches the photos) -->
       <svg viewBox="0 0 1200 444" role="img" aria-labelledby="rigT rigD">
         <title id="rigT">Diagram of a Trailer Toad in use</title>
-        <desc id="rigD">A pickup with a truck camper, on the left, tows the Trailer Toad: a tow bar runs from the truck’s receiver to the front of the Toad. The Toad rides on one wheel under a fender, with a spare tire on top. A weight distribution hitch on the rear of the Toad connects to an enclosed car hauler on the right, with spring bars chained up to the hauler’s tongue. The Toad’s axle carries the hauler’s tongue weight, so the truck carries none.</desc>
+        <desc id="rigD">A pickup with a truck camper, on the right, tows the Trailer Toad: a tow bar runs from the truck’s receiver to the front of the Toad. The Toad rides on one wheel under a fender, with a spare tire on top. A weight distribution hitch on the rear of the Toad connects to an enclosed car hauler on the left, with spring bars chained up to the hauler’s tongue. The Toad’s axle carries the hauler’s tongue weight, so the truck carries none.</desc>
+        <!-- drawing mirrored so the rig travels left-to-right, like the Jeep in the hero video -->
+        <g transform="translate(1200 0) scale(-1 1)">
         <g fill="none" stroke="#A9AFB6" stroke-width="2" stroke-linejoin="round">
           <!-- ground: rig travels left, so the dashes slide right -->
           <line x1="0" y1="372" x2="1200" y2="372" stroke-opacity=".5"/>
@@ -167,31 +169,45 @@
           <circle cx="622" cy="341" r="12" fill="none" stroke="#E8253A" stroke-width="2"/>
           <path d="M672 304 V262" stroke="#E8253A" stroke-width="3"/>
         </g>
-        <!-- weight distribution hitch on the Toad's rear: head + ball, spring bar chained up to the hauler tongue -->
+        <!-- weight distribution hitch on the Toad's rear: head + ball, spring bar linked up to a bracket on the hauler tongue -->
         <g fill="none" stroke="#E8253A" stroke-linejoin="round">
           <rect x="682" y="282" width="12" height="30" rx="2" fill="#17181B" stroke-width="2.5"/>
           <circle cx="700" cy="292" r="6" fill="#E8253A" stroke="none"/>
           <path d="M692 308 L734 316" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M734 316 V306" stroke-width="2" stroke-dasharray="2 2.5"/>
+          <path d="M734 316 L736 310" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="731" y="303" width="10" height="7" rx="1.5" fill="#E8253A" stroke="none"/>
         </g>
 
         <!-- callouts -->
         <g font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.2">
           <path d="M700 158 V266" stroke="#E8253A" stroke-width="3"/>
           <path d="M690 256 L700 274 L710 256" fill="#E8253A"/>
-          <text x="710" y="126" fill="#FF6A72" text-anchor="end">TONGUE WEIGHT</text>
-          <text x="710" y="146" fill="#FF6A72" text-anchor="end">CARRIED BY THE TOAD</text>
           <path d="M510 306 V366 L450 404" fill="none" stroke="#A9AFB6" stroke-opacity=".6" stroke-dasharray="3 4"/>
-          <text x="440" y="418" fill="#A9AFB6" text-anchor="end">FRONT ATTACHMENT</text>
-          <text x="440" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="end">0 LB ON TRUCK HITCH</text>
           <line x1="622" y1="372" x2="622" y2="404" stroke="#A9AFB6" stroke-opacity=".5"/>
-          <text x="622" y="418" fill="#A9AFB6" text-anchor="middle">STEERABLE DURATEK AXLE</text>
-          <text x="622" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="middle">CENTER VERTICAL SPINDLE</text>
           <path d="M720 318 V366 L792 404" fill="none" stroke="#A9AFB6" stroke-opacity=".6" stroke-dasharray="3 4"/>
-          <text x="802" y="418" fill="#A9AFB6">WEIGHT DISTRIBUTION HITCH</text>
-          <text x="802" y="436" fill="#A9AFB6" fill-opacity=".75">ON THE REAR OF THE TOAD</text>
-          <text x="482" y="94" fill="#A9AFB6" fill-opacity=".8" text-anchor="end">TRUCK CAMPER</text>
-          <text x="1162" y="116" fill="#A9AFB6" fill-opacity=".8" text-anchor="end">ENCLOSED CAR HAULER</text>
+        </g>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.2">
+                    <text x="490" y="126" fill="#FF6A72" text-anchor="start">TONGUE WEIGHT</text>
+
+                    <text x="490" y="146" fill="#FF6A72" text-anchor="start">CARRIED BY THE TOAD</text>
+
+                    <text x="760" y="418" fill="#A9AFB6" text-anchor="start">FRONT ATTACHMENT</text>
+
+                    <text x="760" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="start">0 LB ON TRUCK HITCH</text>
+
+                    <text x="578" y="418" fill="#A9AFB6" text-anchor="middle">STEERABLE DURATEK AXLE</text>
+
+                    <text x="578" y="436" fill="#A9AFB6" fill-opacity=".75" text-anchor="middle">CENTER VERTICAL SPINDLE</text>
+
+                    <text text-anchor="end" x="398" y="418" fill="#A9AFB6">WEIGHT DISTRIBUTION HITCH</text>
+
+                    <text text-anchor="end" x="398" y="436" fill="#A9AFB6" fill-opacity=".75">ON THE REAR OF THE TOAD</text>
+
+                    <text x="718" y="94" fill="#A9AFB6" fill-opacity=".8" text-anchor="start">TRUCK CAMPER</text>
+
+                    <text x="38" y="116" fill="#A9AFB6" fill-opacity=".8" text-anchor="start">ENCLOSED CAR HAULER</text>
+
         </g>
       </svg>
     </div>
