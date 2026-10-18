@@ -572,3 +572,15 @@ h1,h2,h3{line-height:1.02}
   .hotspot .npin,.hotspot .pin-label{cursor:help}
 }
 @media (max-width:600px){.tip{width:min(240px,64vw);font-size:14px}}
+
+/* before-you-order: real photo of the front connection beside a 2x2 checklist */
+.prep{display:grid;grid-template-columns:5fr 7fr;gap:16px;margin-top:20px;align-items:stretch}
+.prep-photo{margin:0;display:flex;flex-direction:column;gap:8px}
+.prep-photo img{flex:1;width:100%;min-height:0;height:100%;object-fit:cover;border-radius:14px}
+.prep-photo figcaption{font-size:14px;color:var(--text-2)}
+.prep .checklist{margin-top:0;grid-template-columns:1fr 1fr}
+.prep .checklist li{border-left:1px solid var(--line);border-top:0}
+.prep .checklist li:nth-child(odd){border-left:0}
+.prep .checklist li:nth-child(n+3){border-top:1px solid var(--line)}
+@media (max-width:860px){.prep{grid-template-columns:1fr}.prep-photo img{height:auto}}
+@media (max-width:600px){.prep .checklist{grid-template-columns:1fr}.prep .checklist li{border-left:0}.prep .checklist li+li{border-top:1px solid var(--line)}}
