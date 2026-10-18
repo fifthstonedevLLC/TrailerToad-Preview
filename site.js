@@ -44,34 +44,40 @@ document.addEventListener('keydown', e => {
 });
 
 // Hero video: loop a 10-second stretch, honour reduced motion, and offer pause/play.
+// The <video> has autoplay+muted so the browser starts it on its own; this script only sets the
+// loop range, keeps the button in sync and never relies on catching a one-time load event.
 const bg = document.querySelector('.bg-video');
 if (bg) {
   // the full clip loops data-start..data-end; the trimmed Docker build ships just that stretch, so loop all of it
   let start = +bg.dataset.start, end = +bg.dataset.end;
   const toggle = document.querySelector('.video-toggle');
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const setPaused = paused => {
-    toggle.setAttribute('aria-pressed', paused);
-    toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
-  };
-  bg.addEventListener('loadedmetadata', () => {
-    if (bg.duration < end) { start = 0; end = bg.duration - 0.05; }
-    bg.currentTime = start;
-    if (still) setPaused(true); else bg.play().catch(() => setPaused(true));
-  });
   let userPaused = still;
+
+  const syncButton = () => {
+    toggle.setAttribute('aria-pressed', bg.paused);
+    toggle.setAttribute('aria-label', bg.paused ? 'Play background video' : 'Pause background video');
+  };
+  const tryPlay = () => { if (!userPaused) bg.play().catch(() => {}); };
+  const init = () => {
+    if (bg.duration < end) { start = 0; end = bg.duration - 0.05; }
+    if (bg.currentTime < start || bg.currentTime >= end) bg.currentTime = start;
+    if (still) bg.pause(); else tryPlay();
+    syncButton();
+  };
+
+  // run now if the video is already loaded, otherwise as soon as it is
+  if (bg.readyState >= 1) init(); else bg.addEventListener('loadedmetadata', init, { once: true });
+  bg.addEventListener('canplay', tryPlay);
+  bg.addEventListener('play', syncButton);
+  bg.addEventListener('pause', syncButton);
   bg.addEventListener('timeupdate', () => {
-    if (bg.currentTime >= end || bg.currentTime < start - 1) {
-      bg.currentTime = start;
-      if (!userPaused) bg.play().catch(() => {});
-    }
+    if (bg.currentTime >= end || bg.currentTime < start - 1) { bg.currentTime = start; tryPlay(); }
   });
   toggle.addEventListener('click', () => {
     userPaused = !bg.paused;
-    if (bg.paused) { bg.play(); setPaused(false); } else { bg.pause(); setPaused(true); }
+    if (userPaused) bg.pause(); else bg.play().catch(() => {});
   });
-  // a tab opened in the background may block autoplay; start once it's visible unless paused on purpose
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible' && bg.paused && !userPaused) bg.play().then(() => setPaused(false)).catch(() => {});
-  });
+  // a tab opened in the background may hold autoplay; start once it's visible unless paused on purpose
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') tryPlay(); });
 }
