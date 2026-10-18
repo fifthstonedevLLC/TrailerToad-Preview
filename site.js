@@ -6,7 +6,7 @@ const btn = document.querySelector('.menu-btn'), links = document.getElementById
   });
   links.addEventListener('click', e => { if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
 
-  // No backend yet: compose an email to Jok from the form.
+  // No backend yet: compose an email to Trailer Toad from the form.
   document.getElementById('quote')?.addEventListener('submit', e => {
     e.preventDefault();
     const f = e.target, status = document.getElementById('form-status');
