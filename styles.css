@@ -554,3 +554,9 @@ h1,h2,h3{line-height:1.02}
   .opt{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:12px;align-content:start}
   .opt .when{margin-top:0;align-self:start}
 }
+/* fits section: card spans the full height of the left column (heading top to last list rule) */
+@media (min-width:901px){
+  .fit-wrap{align-items:stretch}
+  .bump{display:flex;flex-direction:column}
+  .bump .signs{margin-top:auto}
+}
