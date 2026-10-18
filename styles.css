@@ -584,3 +584,6 @@ h1,h2,h3{line-height:1.02}
 .prep .checklist li:nth-child(n+3){border-top:1px solid var(--line)}
 @media (max-width:860px){.prep{grid-template-columns:1fr}.prep-photo img{height:auto}}
 @media (max-width:600px){.prep .checklist{grid-template-columns:1fr}.prep .checklist li{border-left:0}.prep .checklist li+li{border-top:1px solid var(--line)}}
+/* ordering steps follow straight on from the cards above */
+#start{padding-bottom:clamp(36px,4vw,56px)}
+#buying{padding-top:clamp(28px,3vw,44px)}
