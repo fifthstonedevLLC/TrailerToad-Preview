@@ -594,3 +594,15 @@ h1,h2,h3{line-height:1.02}
 .btn-line-light{border-color:rgba(178,184,192,.45);color:#fff}
 .btn-line-light:hover{border-color:#fff;background:rgba(255,255,255,.06)}
 .btn .dl-meta{font-size:10.5px;color:#B4B9BF;letter-spacing:.06em}
+
+/* ask on the left, compact manual download on the right; never wrap button text */
+.model-actions{flex-wrap:nowrap;justify-content:space-between;align-items:center}
+.model-actions .btn{white-space:nowrap}
+.btn-dl{min-height:42px;padding:0 16px;font-size:14.5px;gap:8px}
+.btn-dl svg{width:16px;height:16px}
+.btn-dl .lbl-short{display:none}
+@media (max-width:420px){
+  .model-actions .btn{padding:0 14px;font-size:14.5px}
+  .btn-dl .lbl-long{display:none}
+  .btn-dl .lbl-short{display:inline}
+}
