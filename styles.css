@@ -587,3 +587,10 @@ h1,h2,h3{line-height:1.02}
 /* ordering steps follow straight on from the cards above */
 #start{padding-bottom:clamp(52px,5.5vw,76px)}
 #buying{padding-top:clamp(40px,4.5vw,64px)}
+
+/* model cards: ask + download the owner's manual */
+.model-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.model-actions .btn{margin-top:0}
+.btn-line-light{border-color:rgba(178,184,192,.45);color:#fff}
+.btn-line-light:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn .dl-meta{font-size:10.5px;color:#B4B9BF;letter-spacing:.06em}
