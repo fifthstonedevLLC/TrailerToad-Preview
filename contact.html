@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=36">
+<link rel="stylesheet" href="styles.css?v=37">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -131,13 +131,16 @@
         <h3 class="form-title" id="quote-title">Get it right the first time</h3>
         <p class="form-intro">Tell us about your rig and where it’s going. We’ll reply with the right setup and the freight cost to your address.</p>
         <form id="quote" aria-labelledby="quote-title" novalidate>
+          <div class="field"><label for="f-name">Name <span aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
           <div class="row2">
-            <div class="field"><label for="f-name">Name <span aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
-            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="f-contact-help"></div>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="f-contact-help"></div>
           </div>
+          <span class="help" id="f-contact-help" style="margin-top:-8px">Email, phone or both, so we can get back to you. *</span>
           <div class="field"><label for="f-tow">Tow vehicle</label>
             <select id="f-tow" name="tow"><option value="">Choose one</option><option>Pickup</option><option>Truck camper</option><option>Class C motorhome</option><option>Class A gas</option><option>Diesel pusher</option></select>
           </div>
+          <div class="hp" aria-hidden="true"><label for="f-company">Company</label><input id="f-company" name="company" tabindex="-1" autocomplete="off"></div>
           <div class="field"><label for="f-wt">Trailer weight (lb)</label><input id="f-wt" name="weight" inputmode="numeric" aria-describedby="f-wt-help"><span class="help" id="f-wt-help">The 3500HD handles trailers up to 12,000 lb, the 5000SD up to 24,000 lb. A best guess is fine.</span></div>
           <div class="row2">
             <div class="field"><label for="f-zip">Delivery ZIP or postal code</label><input id="f-zip" name="zip" autocomplete="postal-code" aria-describedby="f-zip-help"><span class="help" id="f-zip-help">USA or Canada. Used to quote freight.</span></div>
@@ -186,6 +189,6 @@
     </div>
   </div>
 </footer>
-<script src="site.js?v=8" defer></script>
+<script src="site.js?v=9" defer></script>
 </body>
 </html>

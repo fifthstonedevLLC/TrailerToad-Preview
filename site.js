@@ -6,23 +6,74 @@ const btn = document.querySelector('.menu-btn'), links = document.getElementById
   });
   links.addEventListener('click', e => { if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
 
-  // No backend yet: compose an email to Trailer Toad from the form.
-  document.getElementById('quote')?.addEventListener('submit', e => {
-    e.preventDefault();
-    const f = e.target, status = document.getElementById('form-status');
-    const missing = [...f.querySelectorAll('[required]')].filter(el => !el.value.trim());
-    f.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
-    if (missing.length) {
-      missing.forEach(el => el.setAttribute('aria-invalid', 'true'));
-      status.textContent = 'Please add your name and a short note about what you tow.';
-      missing[0].focus();
-      return;
-    }
-    const d = new FormData(f);
-    const body = `Name: ${d.get('name')}\nPhone: ${d.get('phone')}\nTow vehicle: ${d.get('tow')}\nTrailer weight: ${d.get('weight')}\nDelivery ZIP/postal code: ${d.get('zip')}\nAddress type: ${d.get('addr')}\n\n${d.get('message')}`;
-    location.href = `mailto:trailertoad1@yahoo.com?subject=${encodeURIComponent('Trailer Toad question from ' + d.get('name'))}&body=${encodeURIComponent(body)}`;
-    status.textContent = 'Opening your email app. If nothing happens, call or text (319) 404-7001.';
-  });
+  // Quote form: sends to /api/quote (Amazon SES). If the API can't be reached, fall back to the visitor's email app.
+  const form = document.getElementById('quote');
+  if (form) {
+    const loadedAt = Date.now();
+    const status = document.getElementById('form-status');
+    const submit = form.querySelector('button[type="submit"]');
+    const field = name => form.elements[name];
+    const flag = (els, msg) => {
+      els.forEach(el => el.setAttribute('aria-invalid', 'true'));
+      status.textContent = msg;
+      els[0].focus();
+    };
+    const mailtoFallback = d => {
+      const body = `Name: ${d.name}
+Email: ${d.email}
+Phone: ${d.phone}
+Tow vehicle: ${d.tow}
+Trailer weight: ${d.weight}
+Delivery ZIP/postal code: ${d.zip}
+Address type: ${d.addr}
+
+${d.message}`;
+      location.href = `mailto:trailertoad1@yahoo.com?subject=${encodeURIComponent('Trailer Toad question from ' + d.name)}&body=${encodeURIComponent(body)}`;
+      status.textContent = 'We couldn’t send the form, so we opened your email app instead. You can also call or text (319) 404-7001.';
+    };
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (submit.disabled) return;
+      form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+      const d = Object.fromEntries(new FormData(form));
+      for (const k in d) d[k] = d[k].trim();
+
+      if (!d.name) return flag([field('name')], 'Please add your name.');
+      if (!d.email && !d.phone) return flag([field('email'), field('phone')], 'Please add an email or phone number so we can reach you.');
+      if (d.email && !field('email').checkValidity()) return flag([field('email')], 'That email address doesn’t look right.');
+      if (!d.message) return flag([field('message')], 'Please add a short note about what you tow.');
+
+      submit.disabled = true;
+      submit.setAttribute('aria-busy', 'true');
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...d, elapsed: Date.now() - loadedAt }),
+        });
+        const out = await res.json().catch(() => ({}));
+        if (res.ok) {
+          form.reset();
+          status.textContent = d.email
+            ? 'Thanks! Your request is on its way. We sent a confirmation to your email.'
+            : 'Thanks! Your request is on its way. We’ll call or text you back.';
+        } else if (res.status === 400 && out.field && field(out.field)) {
+          flag([field(out.field)], out.error);
+        } else if (res.status === 429) {
+          status.textContent = out.error;
+        } else {
+          mailtoFallback(d);
+        }
+      } catch {
+        mailtoFallback(d);
+      } finally {
+        submit.disabled = false;
+        submit.removeAttribute('aria-busy');
+      }
+    });
+  }
 
 // Photo labels: descriptions show on hover (mouse) or keyboard focus via CSS. Touch screens have
 // no hover, so there a tap opens the description and a tap elsewhere or Escape closes it.

@@ -3,3 +3,4 @@
 .dockerignore
 *.md
 .gitattributes
+api/node_modules

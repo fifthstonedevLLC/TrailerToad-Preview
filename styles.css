@@ -661,3 +661,8 @@ h1,h2,h3{line-height:1.02}
   .hotspot:has(#tip-6){left:74%!important;top:64%!important}
 }
 .faq{max-width:none}
+
+/* Quote form: spam trap kept off screen, busy state while sending */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#quote{position:relative}
+#quote button[aria-busy="true"]{opacity:.6;cursor:progress}
