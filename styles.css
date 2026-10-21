@@ -632,3 +632,6 @@ h1,h2,h3{line-height:1.02}
 .pull p{font-family:var(--display);font-weight:850;font-style:italic;font-stretch:112%;font-size:clamp(20px,2vw,27px);line-height:1.2;color:var(--text);letter-spacing:-.01em}
 .pull cite{display:block;margin-top:10px;font-style:normal;color:var(--text-2);font-size:11.5px}
 .pledges h3{margin-top:0}
+/* About: YouTube follows the build-quality cards without a full section break */
+#quality{padding-bottom:clamp(52px,5.5vw,76px)}
+#youtube{padding-top:clamp(40px,4.5vw,64px)}
