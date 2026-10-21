@@ -240,7 +240,7 @@ form{display:grid;gap:16px}
 .field input,.field select,.field textarea{font:inherit;font-size:16px;color:var(--text);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
 .field textarea{min-height:120px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--text);box-shadow:0 0 0 3px rgba(200,16,46,.5)}
-.field .help{font-size:14px;color:var(--text-2)}
+.field .help,#quote>.help{font-size:14px;color:var(--text-2)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-status{font-size:15px;color:var(--text-2);min-height:1.4em}
 @media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
