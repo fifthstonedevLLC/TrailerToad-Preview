@@ -635,3 +635,14 @@ h1,h2,h3{line-height:1.02}
 /* About: YouTube follows the build-quality cards without a full section break */
 #quality{padding-bottom:clamp(52px,5.5vw,76px)}
 #youtube{padding-top:clamp(40px,4.5vw,64px)}
+
+/* About: owners' rigs */
+#story{padding-bottom:clamp(52px,5.5vw,76px)} #rigs{padding-top:clamp(40px,4.5vw,64px)}
+.rigs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+.rigs figure{margin:0}
+.rigs img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border-radius:16px;background:var(--paper-2)}
+.rigs figcaption{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:10px 2px 0;font-size:15px}
+.rigs figcaption b{color:var(--text)}
+.rigs figcaption .mono{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2)}
+@media (max-width:860px){.rigs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.rigs{grid-template-columns:1fr}}
