@@ -650,3 +650,14 @@ h1,h2,h3{line-height:1.02}
 .rigs figcaption .mono{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2)}
 @media (max-width:860px){.rigs{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.rigs{grid-template-columns:1fr}}
+
+/* Photo hotspots on phones: smaller pins, nudged apart where they cluster */
+@media (max-width:600px){
+  .hotspot .npin{width:28px;min-width:0;min-height:0;font-size:13px;box-shadow:0 0 0 3px rgba(10,10,11,.55)}
+  .hotspot .npin::before{content:"";position:absolute;inset:-6px;border-radius:50%}
+  .tip{bottom:24px}
+  .hotspot:has(#tip-4){left:62%!important;top:37%!important}
+  .hotspot:has(#tip-5){left:68.5%!important;top:51%!important}
+  .hotspot:has(#tip-6){left:74%!important;top:64%!important}
+}
+.faq{max-width:none}
