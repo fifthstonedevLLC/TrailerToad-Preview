@@ -606,3 +606,20 @@ h1,h2,h3{line-height:1.02}
   .btn-dl .lbl-long{display:none}
   .btn-dl .lbl-short{display:inline}
 }
+
+/* About: owner section without a portrait - full-width quote, three commitments */
+.owner-head{display:grid;grid-template-columns:1fr auto;gap:24px 40px;align-items:end;padding-bottom:clamp(28px,4vw,48px);border-bottom:1px solid rgba(178,184,192,.18)}
+.owner-head .quote{max-width:20ch}
+.owner-head .by{margin:0 0 10px}
+.pledges{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.pledges li{padding:clamp(24px,3vw,36px) clamp(18px,2.4vw,32px) 0;border-left:1px solid rgba(178,184,192,.18)}
+.pledges li:first-child{padding-left:0;border-left:0}
+.pledges .mono{color:var(--accent-hi)}
+.pledges h3{font-size:clamp(20px,1.9vw,26px);margin-top:10px;color:#fff}
+.pledges p{color:#C9CCD1;margin-top:10px;font-size:16.5px;max-width:36ch}
+@media (max-width:860px){
+  .owner-head{grid-template-columns:1fr}
+  .pledges{grid-template-columns:1fr}
+  .pledges li{padding:22px 0;border-left:0;border-bottom:1px solid rgba(178,184,192,.18)}
+  .pledges li:last-child{border-bottom:0;padding-bottom:0}
+}
