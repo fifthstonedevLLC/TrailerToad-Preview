@@ -631,3 +631,4 @@ h1,h2,h3{line-height:1.02}
 .pull{margin:clamp(24px,3vw,36px) 0 0;padding-left:18px;border-left:3px solid var(--yellow);max-width:30ch}
 .pull p{font-family:var(--display);font-weight:850;font-style:italic;font-stretch:112%;font-size:clamp(20px,2vw,27px);line-height:1.2;color:var(--text);letter-spacing:-.01em}
 .pull cite{display:block;margin-top:10px;font-style:normal;color:var(--text-2);font-size:11.5px}
+.pledges h3{margin-top:0}
