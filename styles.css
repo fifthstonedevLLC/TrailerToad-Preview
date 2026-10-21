@@ -623,3 +623,11 @@ h1,h2,h3{line-height:1.02}
   .pledges li{padding:22px 0;border-left:0;border-bottom:1px solid rgba(178,184,192,.18)}
   .pledges li:last-child{border-bottom:0;padding-bottom:0}
 }
+
+/* About: one hero - commitments sit under the intro; brand line is a pull-quote in the story */
+.hero-pledges{margin-top:clamp(36px,5vw,56px);border-top:1px solid rgba(178,184,192,.2)}
+.hero-pledges h3{font-size:clamp(18px,1.6vw,22px)}
+.hero-pledges p{font-size:15.5px}
+.pull{margin:clamp(24px,3vw,36px) 0 0;padding-left:18px;border-left:3px solid var(--yellow);max-width:30ch}
+.pull p{font-family:var(--display);font-weight:850;font-style:italic;font-stretch:112%;font-size:clamp(20px,2vw,27px);line-height:1.2;color:var(--text);letter-spacing:-.01em}
+.pull cite{display:block;margin-top:10px;font-style:normal;color:var(--text-2);font-size:11.5px}
