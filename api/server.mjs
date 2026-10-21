@@ -125,7 +125,8 @@ const server = http.createServer((req, res) => {
     // bots: the hidden "company" field is filled, or the form was sent within 3 seconds of loading
     if (body.company || (Number(body.elapsed) || 0) < 3000) return send(res, 200, { ok: true });
 
-    const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress;
+    // behind Cloudflare, CF-Connecting-IP is the visitor; X-Forwarded-For can be padded by the client
+    const ip = req.headers['cf-connecting-ip'] || String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress;
     if (limited(ip)) return send(res, 429, { error: 'Too many requests. Please call or text (319) 404-7001.' });
 
     const { data: d, error, field } = validate(body);
