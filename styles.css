@@ -637,7 +637,11 @@ h1,h2,h3{line-height:1.02}
 #youtube{padding-top:clamp(40px,4.5vw,64px)}
 
 /* About: owners' rigs */
-#story{padding-bottom:clamp(52px,5.5vw,76px)} #rigs{padding-top:clamp(40px,4.5vw,64px)}
+#rigs{color:#fff;padding:clamp(52px,6vw,84px) 0 clamp(40px,4.5vw,60px);background-color:#121314;background-image:var(--carbon);background-size:var(--carbon-size);background-position:var(--carbon-pos)}
+#rigs h2{color:#fff} #rigs .sec-head p{color:#B4B9BF}
+#rigs .rigs figcaption b{color:#fff} #rigs .rigs figcaption .mono{color:#B4B9BF}
+#rigs .rigs img{background:#1d1f21}
+#rigs+#quality{padding-top:clamp(44px,5vw,68px)}
 .rigs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
 .rigs figure{margin:0}
 .rigs img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border-radius:16px;background:var(--paper-2)}
